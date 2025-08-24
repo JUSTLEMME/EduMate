@@ -1,7 +1,6 @@
 import google.generativeai as genai
 import customtkinter as ctk
 import json
-import time
 
 # --------------------------
 # 🖥️ Setup main window
