@@ -12,7 +12,7 @@ app.geometry("1000x600")
 # --------------------------
 # 🤖 Setup Google Gemini AI
 # --------------------------
-genai.configure(api_key="")  # Gemini API Key
+genai.configure(api_key="AIzaSyAV1RGXaRvKIEHtPNsunonHATULHjJW414")  # Gemini API Key
 model = genai.GenerativeModel("gemini-2.0-flash-lite")
 
 # --------------------------
@@ -173,7 +173,7 @@ def submit_input():
                         summary_label = ctk.CTkLabel(quiz, text="Quiz Summary", font=("Segoe UI", 25, "bold"))
                         summary_label.pack(padx=10, pady=20)
                         
-                        feedback = ai_response(f"Give 15 words personalised feedback for someone who got {score}/{total} in {topic}, {subject}")
+                        feedback = ai_response(f"Give 10 words personalised feedback for someone who got {score}/{total} in {topic}, {subject}, in grade {grade}")
                         result_label = ctk.CTkLabel(quiz, text=feedback, font=("Segoe UI", 18))
                         result_label.pack(padx=10, pady=10)
 
