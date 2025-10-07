@@ -3,27 +3,27 @@ import customtkinter as ctk
 import json
 
 # --------------------------
-# 🖥️ Setup main window
+# Setup main window
 # --------------------------
 app = ctk.CTk()
 app.title("Lesson")
 app.geometry("1000x600")
 
 # --------------------------
-# 🤖 Setup Google Gemini AI
+# Setup Google Gemini AI
 # --------------------------
-genai.configure(api_key="")  # Gemini API Key
+genai.configure(api_key="AIzaSyAV1RGXaRvKIEHtPNsunonHATULHjJW414")  # Gemini API Key
 model = genai.GenerativeModel("gemini-2.0-flash-lite")
 
 # --------------------------
-# ✨ Function: Ask AI for response
+# Function: Ask AI for response
 # --------------------------
 def ai_response(summary):
     response = model.generate_content(summary)
     return response.text
 
 # --------------------------
-# 🚀 Function: When "Teach Me!" button is clicked
+# Function: When "Teach Me!" button is clicked
 # --------------------------
 def submit_input():
     # Get values entered by the user
@@ -36,7 +36,7 @@ def submit_input():
     subject_topic = ai_response(f"Is the topic {topic} in the subject {subject}? Only answer 'True' or 'False'.")
     print(subject_topic)
 
-    # ✅ Check if input is valid
+    # Check if input is valid
     if (
         name != "" and grade != "" and subject != "" and topic != ""  # Nothing is empty
         and grade.isdigit()                                           # Grade is a number
@@ -49,7 +49,7 @@ def submit_input():
             app.destroy()
 
             # --------------------------
-            # 📖 Lesson Page
+            # Lesson Page
             # --------------------------
             gui = ctk.CTk()
             gui.title("EduMate")
@@ -68,7 +68,7 @@ def submit_input():
             frame_right.pack_propagate(False)
 
             # --------------------------
-            # 📝 Get AI Lesson
+            # Get AI Lesson
             # --------------------------
             prompt = (
                 f"Teach a student on {topic} in the subject {subject}. "
@@ -83,7 +83,7 @@ def submit_input():
             response_box.configure(state="disabled")
 
             # --------------------------
-            # 🎯 Quiz Mode
+            # Quiz Mode
             # --------------------------
             quiz_finished = False
 
@@ -253,7 +253,7 @@ def submit_input():
             quiz_button.pack(side="bottom", padx=10, pady=10)
 
             # --------------------------
-            # 💬 Chat Section (Right side)
+            # Chat Section (Right side)
             # --------------------------
             chat_box = ctk.CTkTextbox(frame_right, wrap="word", font=("Segoe UI", 14))
             chat_box.pack(side="top", fill="both", expand=True, padx=20, pady=20)
@@ -285,7 +285,7 @@ def submit_input():
         print("Invalid input")
 
 # --------------------------
-# 🖊️ Input Form UI (First Page)
+# Input Form UI (First Page)
 # --------------------------
 header_app = ctk.CTkLabel(app, text="EduMate", font=("TT Espina", 40, "bold"))
 header_app.pack(pady=(10, 10), side="top")
@@ -317,6 +317,6 @@ submit_button = ctk.CTkButton(app, text="Teach Me!", font=("Segoe UI", 18), comm
 submit_button.pack(pady=10)
 
 # --------------------------
-# 🔁 Start App
+# Start App
 # --------------------------
 app.mainloop()
