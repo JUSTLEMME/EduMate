@@ -12,7 +12,7 @@ app.geometry("1000x600")
 # --------------------------
 # 🤖 Setup Google Gemini AI
 # --------------------------
-genai.configure(api_key="AIzaSyAV1RGXaRvKIEHtPNsunonHATULHjJW414")  # Gemini API Key
+genai.configure(api_key="")  # Gemini API Key
 model = genai.GenerativeModel("gemini-2.0-flash-lite")
 
 # --------------------------
@@ -220,7 +220,7 @@ def submit_input():
                     questions_input.pack_forget()
 
                     response = model.generate_content(
-                        f"Generate a MCQ quiz on {topic} in subject {subject} of {num_questions} questions in valid JSON format only. "
+                        f"Generate a MCQ quiz on {ai} of {num_questions} questions in valid JSON format only. "
                         "No markdown, no extra text. The JSON should have structure: "
                         "{\"quizTitle\": \"...\", \"questions\": [{\"question\": \"...\", \"options\": [\"...\"], \"answer\": \"...\"}]}"
                     )
